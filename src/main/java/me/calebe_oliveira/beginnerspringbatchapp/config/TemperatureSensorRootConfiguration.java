@@ -34,9 +34,9 @@ import javax.sql.DataSource;
 public class TemperatureSensorRootConfiguration {
     @Value("classpath:input/HTE2NP.txt")
     private Resource rawDailyInputResource;
-    @Value("classpath:output/HTE2NP.xml")
+    @Value("file:output/HTE2NP.xml")
     private WritableResource aggregatedDailyOutputXmlResource;
-    @Value("classpath:output/HTE2NP-anomalies.csv")
+    @Value("file:output/HTE2NP-anomalies.csv")
     private WritableResource anomalyDataResource;
 
     @Bean
