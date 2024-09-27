@@ -6,13 +6,13 @@ import org.springframework.oxm.xstream.XStreamMarshaller;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DailyAgregatedSensorData {
+public class DailyAggregatedSensorData {
     private final String date;
     private final double min;
     private final double avg;
     private final double max;
 
-    public DailyAgregatedSensorData(String date, double min, double avg, double max) {
+    public DailyAggregatedSensorData(String date, double min, double avg, double max) {
         this.date = date;
         this.min = min;
         this.avg = avg;
@@ -25,13 +25,13 @@ public class DailyAgregatedSensorData {
         XStreamMarshaller marshaller = new XStreamMarshaller();
 
         Map<String, Class> aliases = new HashMap<>();
-        aliases.put(ITEM_ROOT_ELEMENT_NAME, DailyAgregatedSensorData.class);
+        aliases.put(ITEM_ROOT_ELEMENT_NAME, DailyAggregatedSensorData.class);
         aliases.put("date", String.class);
         aliases.put("min", Double.class);
         aliases.put("avg", Double.class);
         aliases.put("max", Double.class);
 
-        ExplicitTypePermission typePermission = new ExplicitTypePermission(new Class[] { DailyAgregatedSensorData.class });
+        ExplicitTypePermission typePermission = new ExplicitTypePermission(new Class[] { DailyAggregatedSensorData.class });
 
         marshaller.setAliases(aliases);
         marshaller.setTypePermissions(typePermission);

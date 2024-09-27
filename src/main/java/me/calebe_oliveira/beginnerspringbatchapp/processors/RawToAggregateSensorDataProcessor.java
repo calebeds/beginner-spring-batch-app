@@ -1,12 +1,12 @@
 package me.calebe_oliveira.beginnerspringbatchapp.processors;
 
-import me.calebe_oliveira.beginnerspringbatchapp.domain.DailyAgregatedSensorData;
+import me.calebe_oliveira.beginnerspringbatchapp.domain.DailyAggregatedSensorData;
 import me.calebe_oliveira.beginnerspringbatchapp.domain.DailySensorData;
 import org.springframework.batch.item.ItemProcessor;
 
-public class RawToAggregateSensorDataProcessor implements ItemProcessor<DailySensorData, DailyAgregatedSensorData> {
+public class RawToAggregateSensorDataProcessor implements ItemProcessor<DailySensorData, DailyAggregatedSensorData> {
     @Override
-    public DailyAgregatedSensorData process(DailySensorData item) throws Exception {
+    public DailyAggregatedSensorData process(DailySensorData item) throws Exception {
         double min = item.getMeasurements().get(0);
         double max = min;
         double sum = 0;
@@ -20,7 +20,7 @@ public class RawToAggregateSensorDataProcessor implements ItemProcessor<DailySen
         double avg = sum / item.getMeasurements().size();
 
 
-        return new DailyAgregatedSensorData(item.getDate(), convertToCelsius(min), convertToCelsius(avg), convertToCelsius(max));
+        return new DailyAggregatedSensorData(item.getDate(), convertToCelsius(min), convertToCelsius(avg), convertToCelsius(max));
     }
 
     private static double convertToCelsius(double fahT) {
