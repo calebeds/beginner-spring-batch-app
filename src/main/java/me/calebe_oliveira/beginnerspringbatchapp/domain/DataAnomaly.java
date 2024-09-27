@@ -1,4 +1,4 @@
-package me.calebe_oliveira.beginnerspringbatchapp.model;
+package me.calebe_oliveira.beginnerspringbatchapp.domain;
 
 public class DataAnomaly {
     private String date;
